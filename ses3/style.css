@@ -1,0 +1,34 @@
+body
+{
+    background-color: green;
+}
+body:fullscreen
+{
+    background-color: orange;
+}
+
+#main_title
+{
+    text-align: center;
+    color: aliceblue;
+}
+.paragraphs
+{
+    color: lightblue;
+    text-align: justify;
+}
+input[name="text1"]
+{
+    width: 100px;
+}
+input:checked
+{
+    height: 100px;
+    width: 100px;
+    box-shadow: 0 0 0 4px orange;
+}
+input[random_property^="ob1_"]
+{
+    border-color: red;
+    border-radius: 10px;
+}

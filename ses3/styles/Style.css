@@ -1,0 +1,81 @@
+h1
+{
+    text-align: center;
+    color: green;
+}
+ul
+{
+    list-style-type: none;
+    font-size: 2rem;
+}
+#first
+{
+    letter-spacing: 5px;
+    text-decoration: line-through;
+}
+.par
+{
+    background-color: grey;
+    color: white;
+    text-decoration: line-through;
+}
+.big_text
+{
+    font-size: 4rem;
+}
+.underlined
+{
+    text-decoration: underline;
+}
+.center
+{
+    text-align: center;
+}
+.italica
+{
+    font-style: italic;
+}
+.sombreado
+{
+    text-shadow: 2px 2px 2px lightgray;
+}
+table
+{
+    border: 1px solid red;
+    border-radius: 10px;
+    
+}
+th, td
+{
+    border: 1px solid blue;
+    background-color: gray;
+}
+input[obligatorio]
+{
+    border: 2px solid red;
+}
+.redondo
+{
+    border-radius: 50px;
+}
+.remarcado
+{
+    border: 2px solid blue;
+    width: 250px;
+    height: 30px;
+}
+button
+{
+    padding: 25px;
+    background-color: rgb(131, 8, 131);
+    color: white;
+    width: 200px;
+    height: 100px;
+    font-size: 2rem;
+    border-radius: 10px;
+    margin: 10px;
+}
+form
+{
+color: blue;
+}
