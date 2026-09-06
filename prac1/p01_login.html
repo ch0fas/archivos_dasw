@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS v5.3.8 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+        <style>
+            body
+            {
+                background: #EEAECA;
+                background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            }
+        </style>
+        <script>
+            function toggleForms()
+            {
+                let form_login = document.getElementById("formLogin"), form_register = document.getElementById("formRegister");
+                if (form_register.style.display == "none")
+                {
+                    form_login.style.display = "none";
+                    form_register.style.display = "block";
+                } else
+                {
+                    form_login.style.display = "block";
+                    form_register.style.display = "none";
+                }
+            }
+        </script>
+    </head>
+
+    <body class="d-flex align-items-center justify-content-center vh-100">
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main>
+            <div class="card text-start" style="width: 540px; padding: 5% 5% 5% 5%;" >
+                <form action="./p01_home.html" id="formLogin">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Correo</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            name=""
+                            id=""
+                            aria-describedby="emailHelpId"
+                            placeholder="foo@bar.com"
+                            required="true"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Contraseña</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            name=""
+                            id=""
+                            placeholder=""
+                            required="true"
+                        />
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button
+                            type="submit"
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                        >
+                            Iniciar Sesión
+                        </button>
+                    </div><br>
+                    
+                    <div class="d-grid gap-2">
+                        <button
+                            type="button"
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            onclick="toggleForms();"
+                        >
+                            Registrarte
+                        </button>
+                    </div>
+                    
+                </form>
+                <form action="javascript:alert('Registro Exitoso')" id="formRegister" style="display: none;">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nombre</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name=""
+                            id=""
+                            aria-describedby="helpId"
+                            placeholder="Sofia"
+                        />
+                    </div>
+                    <div class="mb-3">
+                            <label for="" class="form-label">Correo</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                name=""
+                                id=""
+                                aria-describedby="emailHelpId"
+                                placeholder="foo@bar.com"
+                            />
+                    </div>
+                    <div class="mb-3">
+                                <label for="" class="form-label">Contraseña</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    name=""
+                                    id=""
+                                    placeholder=""
+                                />
+                    </div>
+                    <div class="mb-3">
+                                <label for="" class="form-label">Confirmar Contraseña</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    name=""
+                                    id=""
+                                    placeholder=""
+                                />
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button
+                            type="submit"
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                        >
+                            Crear Cuenta
+                        </button>
+                    </div><br>
+                    <div class="d-grid gap-2">
+                        <button
+                            type="button"
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            onclick="toggleForms();"
+                        >
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                    
+                </form>
+            </div>
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
