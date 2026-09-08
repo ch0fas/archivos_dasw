@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <title>Práctica 1</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS v5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/98b9f9da5b.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #EEAECA;
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+
+        #main_home_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        @media screen and (width <=720px) {
+            #main_home_container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav" style="align-items: center; background-color: black;">
+            <a class="nav-link active" href="#" aria-current="page"><img
+                    src="https://minecraft.wiki/images/Emerald_JE3_BE3.png" alt=""
+                    style="height: 64px; border-radius: 32px;"></a>
+            <a class="nav-link" href="p01_tasks.html" style="color: grey;">Tareas</a>
+            <div class="dropdown open">
+                <a class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"
+                    style="background-color: black; border: 0px; color: grey;">
+                    Etiquetas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="triggerId" style="background-color: black;">
+                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Salud')"
+                        style="color: grey;">Salud</a>
+                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Proyectos')"
+                        style="color: grey;">Proyectos</a>
+                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Higiene')"
+                        style="color: grey;">Higiene</a>
+                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Trabajo')"
+                        style="color: grey;">Trabajo</a>
+                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#myModal"
+                        style="color: grey;">+ Nueva Etiqueta</a>
+                </div>
+                <div class="modal fade" id="myModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                    tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalToggleLabel">
+                                    Nueva Etiqueta
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                            placeholder="Deporte" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Nombre</label>
+                                        <input type="color" class="form-control" name="" id="" aria-describedby="helpId"
+                                            placeholder="red" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" style="background-color: grey;">
+                                    Cancelar
+                                </button>
+                                <button class="btn btn-primary">
+                                    Crear Etiqueta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-left: auto; display: flex;">
+                <div class="mb-3" style="margin: 15px auto;">
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                        placeholder="Search" />
+                </div>
+                <div class="d-grid gap-2" style="margin: auto auto;">
+                    <button type="button" name="" id="" class="btn btn-primary">
+                        Buscar
+                    </button>
+                </div>
+                <a href="p01_home.html" style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
+                    data-bs-target="#myModal2"><i class="fa-solid fa-right-from-bracket"
+                        style="color: rgb(255, 255, 255);"></i></a>
+                <div class="modal fade" id="myModal2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                    tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalToggleLabel">
+                                    Cerrar Sesión
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Realmente quieres cerrar sesión?
+                            </div>
+                            <div class="modal-footer">
+                                <a href="p01_login.html">
+                                    <button class="btn btn-primary">
+                                        Aceptar
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+
+    </header>
+    <main>
+        <div id="main_home_container">
+            <div class="card" style="height: 540px;">
+                <img class="card-img-top" src="holder.js/100x180/" alt="" />
+                <div class="card-body">
+                    <h4 class="card-title" style="border-bottom: 4px solid black;"><b>Resúmen Usuario</b></h4>
+                    <div style="display: flex;">
+                        <img src="https://minecraft.wiki/images/Emerald_JE3_BE3.png" alt="">
+                        <p class="card-text" style="align-content: center;">
+                            <b>Sofía Maldonado</b><br>
+                            <b>Tareas terminadas por hoy:</b> 6 tareas<br>
+                            <b>Tareas pendientes de hoy:</b> 4 tareas<br>
+                        </p>
+                    </div>
+                    <p class="card-text">
+                        <b>AI Resume:</b><br>
+                        Sofia Maldonado es un usuario que ha terminado 6 tareas hoy. Aún tiene 4 pendientes del día, por lo que lleva un total del 60% de su trabajo total.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="height: 540px; overflow-y: auto">
+                <img class="card-img-top" src="holder.js/100x180/" alt="" />
+                <div class="card-body">
+                    <h4 class="card-title" style="border-bottom: 4px solid black;"><b>Tareas de Hoy</b></h4>
+                    <div
+                        class="table-responsive"
+                    >
+                        <table
+                            class="table table-primary"
+                        >
+                            <thead>
+                                <tr>
+                                    <th scope="col">✅</th>
+                                    <th scope="col">Tarea</th>
+                                    <th scope="col">Etiquetas</th>
+                                    <th scope="col">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Escribir 3 páginas</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Terminar tarea de DED</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-success"
+                                            >Escuela</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Desempolvar Escritorio</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-secondary"
+                                            >Casa</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Hacer Cama</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-secondary"
+                                            >Casa</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Correr 5 km</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-danger"
+                                            >Salud</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>60 min de estiración</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-danger"
+                                            >Salud</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Salida con amigxs</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Clase de Canto</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>60 min de Lectura</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>10 min de reflexión intensa</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="height: 540px; overflow-y: auto">
+                <img class="card-img-top" src="holder.js/100x180/" alt="" />
+                <div class="card-body">
+                    <h4 class="card-title" style="border-bottom: 4px solid black;"><b>Tareas Pendientes</b></h4>
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <span
+                            class="badge bg-primary"
+                            >Personal</span
+                        >
+
+                        <span
+                            class="badge bg-success opacity-50"
+                            >Escuela</span
+                        >
+
+                        <span
+                            class="badge bg-secondary opacity-50"
+                            >Casa</span
+                        >
+
+                        <span
+                            class="badge bg-danger opacity-50"
+                            >Salud</span
+                        >
+                        
+                    </div>
+                    <div
+                        class="table-responsive"
+                    >
+                        <table
+                            class="table table-warning"
+                        >
+                            <thead>
+                                <tr>
+                                    <th scope="col">✅</th>
+                                    <th scope="col">Tarea</th>
+                                    <th scope="col">Etiquetas</th>
+                                    <th scope="col">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Escribir 3 páginas</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Salida con amigxs</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Clase de Canto</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>60 min de Lectura</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>10 min de reflexión intensa</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="height: 540px; overflow-y: auto">
+                <img class="card-img-top" src="holder.js/100x180/" alt="" />
+                <div class="card-body">
+                    <h4 class="card-title" style="border-bottom: 4px solid black;"><b>Tareas Terminadas</b></h4>
+                    <div
+                        class="table-responsive"
+                    >
+                        <table
+                            class="table table-primary"
+                        >
+                            <thead>
+                                <tr>
+                                    <th scope="col">✅</th>
+                                    <th scope="col">Tarea</th>
+                                    <th scope="col">Etiquetas</th>
+                                    <th scope="col">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Escribir 3 páginas</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Terminar tarea de DED</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-success"
+                                            >Escuela</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Desempolvar Escritorio</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-secondary"
+                                            >Casa</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Hacer Cama</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-secondary"
+                                            >Casa</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Correr 5 km</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-danger"
+                                            >Salud</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
