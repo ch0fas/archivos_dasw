@@ -68,5 +68,17 @@ let alumnos =
     new AlumnoTarea("Jose Luis", "Ciencia de Datos", [["POO", 5], ["Deep Learning", 5], ["Proyecto de Ciencia de Datos", 6]])
 ]
 
-console.log(fnPromedio(alumnos, "Viviana"))
+let prueba = "Sofia"
+
+fnAprobados(alumnos, "POO");
+console.log("El promedio de " + prueba + " es: " + fnPromedio(alumnos, prueba) + "\n")
+
+prueba = "Viviana"
+
+fnAprobados(alumnos, "Deep Learning");
+console.log("El promedio de " + prueba + " es: " + fnPromedio(alumnos, prueba) + "\n")
+
+prueba = "Jose Luis"
+
 fnAprobados(alumnos, "Proyecto de Ciencia de Datos");
+console.log("El promedio de " + prueba + " es: " + fnPromedio(alumnos, prueba) + "\n")
