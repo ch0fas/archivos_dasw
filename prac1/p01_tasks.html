@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <title>Tasks</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS v5.3.8 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+        <script src="https://kit.fontawesome.com/98b9f9da5b.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+            <header>
+            <nav class="nav" style="align-items: center; background-color: black;">
+                <a class="nav-link active" href="#" aria-current="page"><img
+                        src="https://minecraft.wiki/images/Emerald_JE3_BE3.png" alt=""
+                        style="height: 64px; border-radius: 32px;"></a>
+                <a class="nav-link" href="p01_tasks.html" style="color: grey;">Tareas</a>
+                <div class="dropdown open">
+                    <a class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"
+                        style="background-color: black; border: 0px; color: grey;">
+                        Etiquetas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="triggerId" style="background-color: black;">
+                        <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Salud')"
+                            style="color: grey;">Salud</a>
+                        <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Proyectos')"
+                            style="color: grey;">Proyectos</a>
+                        <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Higiene')"
+                            style="color: grey;">Higiene</a>
+                        <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Trabajo')"
+                            style="color: grey;">Trabajo</a>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#myModal"
+                            style="color: grey;">+ Nueva Etiqueta</a>
+                    </div>
+                    <div class="modal fade" id="myModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                        tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalToggleLabel">
+                                        Nueva Etiqueta
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                                placeholder="Deporte" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Nombre</label>
+                                            <input type="color" class="form-control" name="" id="" aria-describedby="helpId"
+                                                placeholder="red" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" style="background-color: grey;">
+                                        Cancelar
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        Crear Etiqueta
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: auto; display: flex;">
+                    <div class="mb-3" style="margin: 15px auto;">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                            placeholder="Search" />
+                    </div>
+                    <div class="d-grid gap-2" style="margin: auto auto;">
+                        <button type="button" name="" id="" class="btn btn-primary">
+                            Buscar
+                        </button>
+                    </div>
+                    <a href="p01_home.html" style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
+                        data-bs-target="#myModal2"><i class="fa-solid fa-right-from-bracket"
+                            style="color: rgb(255, 255, 255);"></i></a>
+                    <div class="modal fade" id="myModal2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                        tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalToggleLabel">
+                                        Cerrar Sesión
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Realmente quieres cerrar sesión?
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="p01_login.html">
+                                        <button class="btn btn-primary">
+                                            Aceptar
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </nav>
+        </header>
+        <main>
+            <div
+                        class="table-responsive"
+                    >
+                        <table
+                            class="table table-primary"
+                        >
+                            <thead>
+                                <tr>
+                                    <th scope="col">✅</th>
+                                    <th scope="col">Tarea</th>
+                                    <th scope="col">Etiquetas</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Escribir 3 páginas</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-primary"
+                                            >Personal</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                    <td>
+                                        <i class="fa-solid fa-pencil" style="color: rgb(69, 5, 255);"></i>
+                                        <i class="fa-solid fa-trash" style="color: rgb(255, 0, 0);"></i>
+                                        <i class="fa-solid fa-tag" style="color: rgb(66, 138, 62);"></i>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Terminar tarea de DED</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-success"
+                                            >Escuela</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                    <td>
+                                        <i class="fa-solid fa-pencil" style="color: rgb(69, 5, 255);"></i>
+                                        <i class="fa-solid fa-trash" style="color: rgb(255, 0, 0);"></i>
+                                        <i class="fa-solid fa-tag" style="color: rgb(66, 138, 62);"></i>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id=""></td>
+                                    <td>Desempolvar Escritorio</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-secondary"
+                                            >Casa</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                    <td>
+                                        <i class="fa-solid fa-pencil" style="color: rgb(69, 5, 255);"></i>
+                                        <i class="fa-solid fa-trash" style="color: rgb(255, 0, 0);"></i>
+                                        <i class="fa-solid fa-tag" style="color: rgb(66, 138, 62);"></i>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Hacer Cama</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-secondary"
+                                            >Casa</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                    <td>
+                                        <i class="fa-solid fa-pencil" style="color: rgb(69, 5, 255);"></i>
+                                        <i class="fa-solid fa-trash" style="color: rgb(255, 0, 0);"></i>
+                                        <i class="fa-solid fa-tag" style="color: rgb(66, 138, 62);"></i>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">Correr 5 km</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-danger"
+                                            >Salud</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                    <td>
+                                        <i class="fa-solid fa-pencil" style="color: rgb(69, 5, 255);"></i>
+                                        <i class="fa-solid fa-trash" style="color: rgb(255, 0, 0);"></i>
+                                        <i class="fa-solid fa-tag" style="color: rgb(66, 138, 62);"></i>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row"><input type="checkbox" name="" id="" checked></td>
+                                    <td style="text-decoration: line-through;">60 min de estiración</td>
+                                    <td>
+                                        <span
+                                            class="badge bg-danger"
+                                            >Salud</span
+                                        >
+                                    </td>
+                                    <td>09/09/2026</td>
+                                    <td>
+                                        <i class="fa-solid fa-pencil" style="color: rgb(69, 5, 255);"></i>
+                                        <i class="fa-solid fa-trash" style="color: rgb(255, 0, 0);"></i>
+                                        <i class="fa-solid fa-tag" style="color: rgb(66, 138, 62);"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                <button
+                    type="button"
+                    class="btn btn-outline-primary bg-success"
+                    style="color: white; position: fixed; bottom: 10px; right: 10px;"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#taskModal"
+                >
+                    +
+                </button>
+
+                <div class="modal fade" id="taskModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                    tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalToggleLabel">
+                                    Nueva Tarea
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                            placeholder="Deporte" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Fecha</label>
+                                        <input
+                                            type="date"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Etiqueta</label>
+                                        <select
+                                            class="form-select form-select-lg"
+                                            name=""
+                                            id=""
+                                        >
+                                            <option selected>Personal</option>
+                                            <option value="">Escuela</option>
+                                            <option value="">Casa</option>
+                                            <option value="">Salud</option>
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                    
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" style="background-color: grey;">
+                                    Cancelar
+                                </button>
+                                <button class="btn btn-primary">
+                                    Crear Etiqueta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
