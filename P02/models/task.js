@@ -25,13 +25,13 @@ class Task
 
     constructor(title, description, due_date, owner, status, tags)
     {
-        this.#id = getNextTaskID();
         this.title = title;
         this.description = description;
         this.due_date = due_date;
         this.owner = owner;
         this.status = status;
         this.tags = tags;
+        this.#id = getNextTaskID();
     }
 
     // Getters

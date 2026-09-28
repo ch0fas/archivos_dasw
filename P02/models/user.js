@@ -23,11 +23,11 @@ class User
 
     constructor(name, email, password)
     {
-        this.#id = getNextUserID();
         this.name = name;
         this.email = email;
         this.password = password;
         this.#joined_at = new Date();
+        this.#id = getNextUserID();
     }
 
     // Getters

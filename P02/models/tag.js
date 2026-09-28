@@ -21,9 +21,9 @@ class Tag
     
     constructor(name, color)
     {
-        this.#id = getNextTagID();
         this.name = name;
         this.color = color;
+        this.#id = getNextTagID();
     }
 
     // Getters
