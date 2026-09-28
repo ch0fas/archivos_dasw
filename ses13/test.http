@@ -1,0 +1,15 @@
+// Guardamos la info
+// en npoint.io puedes crear un JSON, almacenarlo y modificarlo con HTTP requests
+###
+POST https://api.npoint.io/740f8cd6f1b0592c7601 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Sofia",
+    "var_2": ["spam", "eggs"],
+    "age": 22
+}
+
+// Obtenemos la info
+###
+GET https://api.npoint.io/740f8cd6f1b0592c7601 
