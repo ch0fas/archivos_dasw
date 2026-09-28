@@ -1,6 +1,8 @@
+let nextTagID = 1;
+
 function getNextTagID()
 {
-    return 1;
+    return nextTagID++;
 }
 
 class TagException
@@ -59,7 +61,7 @@ class Tag
 
     set color(color)
     {
-        if (typeof color === 'string' && color.length === 7 && color[0] === '#' && !isNaN(Number('0x' + color.slice(1)))) // Funcion sacada de aqui https://stackoverflow.com/a/8027526
+        if (typeof color === 'string' && color.length === 7 && /^#[0-9A-Fa-f]{6}$/.test(color)) // Funcion sacada de aqui https://stackoverflow.com/a/8027444
         {
             this.#color = color;
         } else throw new TagException("Not a valid color");

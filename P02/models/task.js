@@ -1,6 +1,8 @@
+let nextTaskID = 1;
+
 function getNextTaskID()
 {
-    return 1;
+    return nextTaskID++;
 }
 
 class TaskException
@@ -79,7 +81,7 @@ class Task
     {
         if (title.length === 0)
         {
-            throw new TagException("Title cannot be empty");
+            throw new TaskException("Title cannot be empty");
         }
 
         this.#title = title;
@@ -106,6 +108,10 @@ class Task
         {
             throw new TaskException("Owner cannot be empty");
         }
+        if (searchUsers("name", owner).length === 0)
+        {
+            throw new TaskException("Owner does not exist");
+        }
 
         this.#owner = owner;
     }
@@ -122,6 +128,13 @@ class Task
     {
         if (Array.isArray(tags))
         {
+            for (let i = 0; i < tags.length; i++)
+            {
+                if (searchTags("id", tags[i]).length === 0)
+                {
+                    throw new TaskException(`Tag ${tags[i]} not found.`);
+                }
+            }
             this.#tags = tags;
         } else throw new TaskException("Must be an array");
     }

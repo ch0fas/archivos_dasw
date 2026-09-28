@@ -1,6 +1,8 @@
+let nextUserID = 1;
+
 function getNextUserID()
 {
-    return 1;
+    return nextUserID++;
 }
 
 class UserException
@@ -75,6 +77,14 @@ class User
         if (!email.includes("@"))
         {
             throw new UserException("Not a valid email. Try again!");
+        }
+
+        let email_taken_qm = data.users.some(u => u !== this && u.email === email);
+        {
+            if (email_taken_qm)
+            {
+                throw new UserException("Email address is already taken")
+            }
         }
 
         this.#email = email;
