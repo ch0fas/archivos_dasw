@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ascii-cats": "^1.1.1",
+    "chalk": "^6.0.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
