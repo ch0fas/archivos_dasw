@@ -1,0 +1,73 @@
+{
+    "albums": 
+    [{
+        "id": 6,
+        "name": "The College Dropout",
+        "artist": "Kanye West",
+        "release_year": 2004,
+        "price": 400
+    },
+    {
+        "id": 130,
+        "name": "MTV Unplugged: Música de Fondo",
+        "artist": "Zoé",
+        "release_year": 2011,
+        "price": 250
+    },
+    {
+        "id": 48,
+        "name": "Pure Heroine",
+        "artist": "Lorde",
+        "release_year": 2013,
+        "price": 175
+    },
+    {
+        "id": 49,
+        "name": "DAYTONA",
+        "artist": "Pusha T",
+        "release_year": 2018,
+        "price": 200
+    },
+    {
+        "id": 175,
+        "name": "Alive 2007",
+        "artist": "Daft Punk",
+        "release_year": 2007,
+        "price": 500
+    },
+    {
+        "id": 44,
+        "name": "HEROES & VILLAINS",
+        "artist": "Metro Boomin",
+        "release_year": 2022,
+        "price": 150
+    },
+    {
+        "id": 129,
+        "name": "ORQUÍDEAS",
+        "artist": "Kali Uchis",
+        "release_year": 2024,
+        "price": 200
+    },
+    {
+        "id": 20,
+        "name": "Midnights",
+        "artist": "Taylor Swift",
+        "release_year": 2022,
+        "price": 275
+    },
+    {
+        "id": 62,
+        "name": "the record",
+        "artist": "boygenius",
+        "release_year": 2023,
+        "price": 350
+    },
+    {
+        "id": 198,
+        "name": "Current",
+        "artist": "Tame Impala",
+        "release_year": 2015,
+        "price": 400
+    }]
+}

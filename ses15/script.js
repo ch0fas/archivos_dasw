@@ -26,3 +26,25 @@ function readUsers(auth)
         }
     }
 }
+
+function showAlbums(flag)
+{
+    let url = "http://localhost:3000/products";
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url);
+    xhr.setRequestHeader("flag", flag);
+
+    xhr.send();
+
+    xhr.onload = function()
+    {
+        if (xhr.status != 200)
+        {
+            alert(`${xhr.status}`);
+        } else
+        {
+            document.getElementById("hw_response").innerHTML = xhr.responseText;
+        }
+    }
+}
