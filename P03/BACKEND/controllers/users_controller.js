@@ -1,3 +1,7 @@
+const fs = require('fs');
+const User = require('../models/user');
+let users = JSON.parse(fs.readFileSync('./database/users.json'));
+
 function createUser(name, email, password) 
 {
     let new_user = new User(name, email, password);

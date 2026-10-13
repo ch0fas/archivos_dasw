@@ -1,11 +1,9 @@
 const fs = require('fs');
 let users = JSON.parse(fs.readFileSync('./database/users.json'));
 
-let nextUserID = 1;
-
 function getNextUserID()
 {
-    return nextUserID++;
+    return users.length + 1;
 }
 
 class UserException
@@ -26,11 +24,11 @@ class User
 
     constructor(name, email, password)
     {
+        this.#id = getNextUserID();
         this.name = name;
         this.email = email;
         this.password = password;
         this.#joined_at = new Date();
-        this.#id = getNextUserID();
     }
 
     // Getters
@@ -77,20 +75,24 @@ class User
 
     set email(email)
     {
-        if (!email.includes("@"))
+        if (typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
         {
-            throw new UserException("Not a valid email. Try again!");
+            throw new UserException("Invalid e-mail format");
         }
 
-        let email_taken_qm = data.users.some(u => u !== this && u.email === email);
+        let bare_address = email.trim().toLowerCase();
+
+        let taken_b = users.some
+        (
+            (u) => u.email === bare_address && u.id !== this.#id
+        );
+
+        if (taken_b)
         {
-            if (email_taken_qm)
-            {
-                throw new UserException("Email address is already taken")
-            }
+            throw new UserException("E-Mail is already taken!");
         }
 
-        this.#email = email;
+        this.#email = bare_address;
     }
 
     set password(password)
@@ -100,11 +102,36 @@ class User
             throw new UserException("Password must have at least 8 characters");
         }
 
-        this.#password = password;
+        let bare_pwd = password.trim();
+
+        let taken_pwd = users.some
+        (
+            (u) => u.password === bare_pwd && u.id !== this.#id
+        );
+
+        if (taken_pwd)
+        {
+            throw new UserException("Password has to be unique");
+        }
+
+        this.#password = bare_pwd;
     }
 
     set joined_at(date)
     {
         throw new UserException("Join date cannot be modified");
     }
+
+    toObj()
+    {
+        return {
+            id: this.id,
+            name: this.name,
+            email: this.email,
+            password: this.password,
+            joined_at: this.joined_at
+        };
+    }
 }
+
+module.exports = User;
