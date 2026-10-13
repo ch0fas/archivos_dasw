@@ -70,3 +70,5 @@ function deleteUser(id)
         data.users = data.users.filter((elem) => elem.id !== id)
     } else throw new UserException("User does not exist");
 }
+
+module.exports = usersController;

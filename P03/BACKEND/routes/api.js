@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
+const usersRoutes = require('./users');
 
 const routerApi = express.Router();
+
+routerApi.use("/users", usersRoutes);
 
 function auth_entry(req, res, next)
 {

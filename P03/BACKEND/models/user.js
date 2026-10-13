@@ -1,3 +1,6 @@
+const fs = require('fs');
+let users = JSON.parse(fs.readFileSync('./database/users.json'));
+
 let nextUserID = 1;
 
 function getNextUserID()
