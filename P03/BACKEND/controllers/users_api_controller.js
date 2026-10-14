@@ -2,8 +2,9 @@ const fs = require('fs');
 const User = require('../models/user');
 let users = JSON.parse(fs.readFileSync('./database/users.json'));
 
-function createUser(name, email, password) 
+exports.registerUser(name, email, password) 
 {
+    
     let new_user = new User(name, email, password);
     data.users.push(new_user);
 }
@@ -74,5 +75,3 @@ function deleteUser(id)
         data.users = data.users.filter((elem) => elem.id !== id)
     } else throw new UserException("User does not exist");
 }
-
-module.exports = usersController;
