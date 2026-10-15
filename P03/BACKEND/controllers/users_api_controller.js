@@ -2,11 +2,152 @@ const fs = require('fs');
 const User = require('../models/user');
 let users = JSON.parse(fs.readFileSync('./database/users.json'));
 
-exports.registerUser(name, email, password) 
+/* exports.registerUser(name, email, password) 
 {
     
     let new_user = new User(name, email, password);
     data.users.push(new_user);
+} */
+
+exports.authUsersMiddleware = (req, res, next) =>
+{
+    try
+    {
+        let pwd = req.get('x-auth');
+        if (!pwd)
+        {
+            res.status(401).send("Did not provide password");
+        }
+
+        let res_user = users.find(u => String(u.id) === req.params.id);
+        if (!res_user)
+        {
+            res.status(404).send("User Not Found");
+        }
+
+        if (res_user.password !== pwd)
+        {
+            res.status(401).send("Wrong Password");
+        }
+
+        req.user = res_user;
+        next();
+    } catch (err)
+    {
+        res.status(400).send(err.errorMessage);
+    }
+}
+
+exports.registerUser = (req, res) =>
+{
+    try
+    {
+        if (req.body.password !== req.body.confirm_password)
+        {
+            res.status(400).send("Passwords must match!");
+        } else
+        {
+            let new_user = new User(req.body.name, req.body.email, req.body.password);
+            users.push(new_user.toObj());
+            fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 2));
+            res.send("User added");
+        }
+    } catch (err)
+    {
+        res.status(400).send(err.errorMessage);
+    }
+}
+
+exports.usersPage = (req, res) =>
+{
+    try
+    {
+        if (req.get("x-auth") !== "admin_auth")
+        {
+            res.status(401).send("Wrong Admin Password");
+        } else
+        {
+            let page = parseInt(req.query.page);
+            let limit = parseInt(req.query.limit);
+
+            let start = (page-1) * limit;
+            let end = start + limit;
+            let res_users = users.slice(start, end);
+
+            res.json
+            ({
+                page: page,
+                next_page: page+1,
+                limit: limit,
+                total: users.length,
+                data: res_users
+            })
+        }
+    } catch (err)
+    {
+        res.status(400).send(err.errorMessage);
+    }
+}
+
+exports.getUserFromID = (req, res) =>
+{
+    try
+    {
+        res.json(req.user);
+    } catch (err)
+    {
+        res.status(400).send(err.errorMessage);
+    }
+}
+
+exports.patchUser = (req, res) =>
+{
+    try
+    {
+        
+        let body = req.body;
+        // Para validar que los campos a actualizar si sean correctos
+        let fields = ["name", "email", "password"];
+
+        let valid_changes = {};
+
+        for (const i of fields)
+        {
+            if (i in body)
+            {
+                valid_changes[i] = body[i];
+            }
+        }
+
+        if (Object.keys(valid_changes).length === 0)
+        {
+            res.status(400).send("No valid fields were given");
+        }
+
+        if (valid_changes.email && users.some(u => String(u.email) === valid_changes.email && String(u.id) !== req.params.id))
+        {
+            res.status(403).send("Email already in use");
+        }
+
+        let position = users.findIndex(u => String(u.id) === req.params.id);
+
+        let new_user = {...users[position], ...valid_changes};
+        let updated_users = [...users];
+        updated_users[position] = new_user;
+
+        fs.writeFileSync('./database/users.json', JSON.stringify(updated_users, null, 2));
+        users = updated_users;
+
+        res.json
+        ({
+            message: "User Updated Successfully!",
+            user: new_user
+        });
+
+    } catch (err)
+    {
+        res.status(400).send(err.errorMessage);
+    }
 }
 
 function getUserById(id)

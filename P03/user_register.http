@@ -1,0 +1,153 @@
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Sofia",
+    "email": "sofi@chofas.org",
+    "password": "12345678910",
+    "confirm_password": "12345678910"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Andres",
+    "email": "andres@uoft.ca",
+    "password": "i_like_moms",
+    "confirm_password": "i_like_moms"
+}
+
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Naty",
+    "email": "natalia.arenas@gmail.com",
+    "password": "naty_fresa",
+    "confirm_password": "naty_fresa"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Ale",
+    "email": "alegonz@tec.mx",
+    "password": "26092025",
+    "confirm_password": "26092025"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Alexa",
+    "email": "alexa.moya@udeg.mx",
+    "password": "espana_vibra",
+    "confirm_password": "espana_vibra"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Arturo",
+    "email": "arfurro@gmail.br",
+    "password": "nubenubenube",
+    "confirm_password": "nubenubenube"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Lucia",
+    "email": "lu@iteso.mx",
+    "password": "arqui_mention",
+    "confirm_password": "arqui_mention"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Maci",
+    "email": "mariana@udeg.mx",
+    "password": "libra_fest_da_best",
+    "confirm_password": "libra_fest_da_best"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "MarianaG",
+    "email": "mariana@tec.mx",
+    "password": "lesbianism",
+    "confirm_password": "lesbianism"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Benitez",
+    "email": "mariana@iteso.mx",
+    "password": "biotec_mention",
+    "confirm_password": "biotec_mention"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Nicole",
+    "email": "nicole@iteso.mx",
+    "password": "party_in_da_usa",
+    "confirm_password": "party_in_da_usa"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Oscar",
+    "email": "salcedi@ou.org",
+    "password": "mr_worldwide",
+    "confirm_password": "mr_worldwide"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Vale",
+    "email": "vale@iteso.mx",
+    "password": "psiconena",
+    "confirm_password": "psiconena"
+}
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Ximena",
+    "email": "ximena@gmail.ar",
+    "password": "noche_en_corto",
+    "confirm_password": "noche_en_corto"
+}

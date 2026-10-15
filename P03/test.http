@@ -1,1 +1,16 @@
-GET http://localhost:3000/tasks.html
+GET http://localhost:3000/users?page=1&limit=2
+x-auth: admin_auth
+
+###
+GET http://localhost:3000/users/14
+x-auth: i_like_moms
+
+###
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+x-auth: 12345678910
+
+{
+    "name": "Sofi",
+    "email": "foo@chofas.org"
+}
