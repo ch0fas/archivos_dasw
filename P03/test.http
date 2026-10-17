@@ -14,3 +14,7 @@ x-auth: 12345678910
     "name": "Sofi",
     "email": "foo@chofas.org"
 }
+
+###
+DELETE http://localhost:3000/users/5
+x-auth: espana_vibra

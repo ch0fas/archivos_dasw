@@ -16,25 +16,25 @@ exports.authUsersMiddleware = (req, res, next) =>
         let pwd = req.get('x-auth');
         if (!pwd)
         {
-            res.status(401).send("Did not provide password");
+            return res.status(401).send("Did not provide password");
         }
 
         let res_user = users.find(u => String(u.id) === req.params.id);
         if (!res_user)
         {
-            res.status(404).send("User Not Found");
+            return res.status(404).send("User Not Found");
         }
 
         if (res_user.password !== pwd)
         {
-            res.status(401).send("Wrong Password");
+            return res.status(401).send("Wrong Password");
         }
 
         req.user = res_user;
         next();
     } catch (err)
     {
-        res.status(400).send(err.errorMessage);
+        return res.status(400).send(err.errorMessage);
     }
 }
 
@@ -142,6 +142,29 @@ exports.patchUser = (req, res) =>
         ({
             message: "User Updated Successfully!",
             user: new_user
+        });
+
+    } catch (err)
+    {
+        res.status(400).send(err.errorMessage);
+    }
+}
+
+exports.removeUser = (req, res) =>
+{
+    try
+    {
+        let position = users.findIndex(u => String(u.id) === req.params.id);
+        let removed_user = {...users[position]};
+        let updated_users = users.filter(u => String(u.id) !== req.params.id);
+
+        fs.writeFileSync('./database/users.json', JSON.stringify(updated_users, null, 2));
+        users = updated_users;
+
+        res.json
+        ({
+            message: `User with ID  ${req.params.id} deleted!`,
+            user: removed_user
         });
 
     } catch (err)

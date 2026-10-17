@@ -13,4 +13,6 @@ routerUsers.get("/:id", usersController.getUserFromID);
 
 routerUsers.patch("/:id", usersController.patchUser);
 
+routerUsers.delete("/:id", usersController.removeUser);
+
 module.exports = routerUsers;
