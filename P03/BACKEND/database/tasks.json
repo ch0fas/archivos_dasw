@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Finish P3",
+    "description": "Foo",
+    "due_date": "2026-10-18T14:48:12.034Z",
+    "id_user": 1,
+    "status": "A",
+    "tags": []
+  },
+  {
+    "id": 2,
+    "title": "Return from Toronto",
+    "description": "Bar",
+    "due_date": "2026-10-18T14:49:16.195Z",
+    "id_user": 2,
+    "status": "A",
+    "tags": []
+  },
+  {
+    "id": 3,
+    "title": "Terminar PAP",
+    "description": "Spam",
+    "due_date": "2026-10-31T00:00:00.000Z",
+    "id_user": 3,
+    "status": "A",
+    "tags": []
+  },
+  {
+    "id": 4,
+    "title": "Terminar Tarea",
+    "description": "Spam",
+    "due_date": "2026-10-31T00:00:00.000Z",
+    "id_user": 3,
+    "status": "A",
+    "tags": []
+  }
+]

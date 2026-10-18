@@ -34,11 +34,11 @@ exports.authUsersMiddleware = (req, res, next) =>
         next();
     } catch (err)
     {
-        return res.status(400).send(err.errorMessage);
+        return res.status(400).send(err.message);
     }
 }
 
-exports.registerUser = (req, res) =>
+exports.registerUser = (req, res) => // POST
 {
     try
     {
@@ -54,11 +54,11 @@ exports.registerUser = (req, res) =>
         }
     } catch (err)
     {
-        res.status(400).send(err.errorMessage);
+        res.status(400).send(err.message);
     }
 }
 
-exports.usersPage = (req, res) =>
+exports.usersPage = (req, res) => // Get Page
 {
     try
     {
@@ -85,22 +85,22 @@ exports.usersPage = (req, res) =>
         }
     } catch (err)
     {
-        res.status(400).send(err.errorMessage);
+        res.status(400).send(err.message);
     }
 }
 
-exports.getUserFromID = (req, res) =>
+exports.getUserFromID = (req, res) => // Get from ID
 {
     try
     {
         res.json(req.user);
     } catch (err)
     {
-        res.status(400).send(err.errorMessage);
+        res.status(400).send(err.message);
     }
 }
 
-exports.patchUser = (req, res) =>
+exports.patchUser = (req, res) => // Patch from ID
 {
     try
     {
@@ -146,11 +146,11 @@ exports.patchUser = (req, res) =>
 
     } catch (err)
     {
-        res.status(400).send(err.errorMessage);
+        res.status(400).send(err.message);
     }
 }
 
-exports.removeUser = (req, res) =>
+exports.removeUser = (req, res) => // DELETE from ID
 {
     try
     {
@@ -169,7 +169,7 @@ exports.removeUser = (req, res) =>
 
     } catch (err)
     {
-        res.status(400).send(err.errorMessage);
+        res.status(400).send(err.message);
     }
 }
 

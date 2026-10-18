@@ -18,3 +18,34 @@ x-auth: 12345678910
 ###
 DELETE http://localhost:3000/users/5
 x-auth: espana_vibra
+
+###
+POST http://localhost:3000/tasks/
+x-auth: naty_fresa
+Content-Type: application/json
+
+{
+    "title": "Terminar de Anotar",
+    "description": "Spam",
+    "due_date": "2026-10-31",
+    "id_user": 3,
+    "tags": [1]
+}
+
+###
+GET http://localhost:3000/tasks?page=1&limit=10
+x-auth: 12345678910
+Content-Type: application/json
+
+{
+    "id_user": 1
+}
+
+
+###
+GET http://localhost:3000/tasks/1
+x-auth: 12345678910
+
+{
+    "id_user": 1
+}

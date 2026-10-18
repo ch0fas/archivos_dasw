@@ -67,3 +67,5 @@ class Tag
         } else throw new TagException("Not a valid color");
     }
 }
+
+module.exports = Tag;

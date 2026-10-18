@@ -1,8 +1,11 @@
-let nextTaskID = 1;
+const fs = require('fs');
+const tasks = JSON.parse(fs.readFileSync('./database/tasks.json'));
+const users = JSON.parse(fs.readFileSync('./database/users.json'));
+const tags = JSON.parse(fs.readFileSync('./database/tags.json'));
 
 function getNextTaskID()
 {
-    return nextTaskID++;
+    return tasks.length + 1;
 }
 
 class TaskException
@@ -19,16 +22,16 @@ class Task
     #title;
     #description;
     #due_date;
-    #owner;
+    #id_user;
     #status;
     #tags;
 
-    constructor(title, description, due_date, owner, status, tags)
+    constructor(title, description, due_date, id_user, status, tags)
     {
         this.title = title;
         this.description = description;
         this.due_date = due_date;
-        this.owner = owner;
+        this.id_user = id_user;
         this.status = status;
         this.tags = tags;
         this.#id = getNextTaskID();
@@ -55,9 +58,9 @@ class Task
         return this.#due_date;
     }
 
-    get owner()
+    get id_user()
     {
-        return this.#owner;
+        return this.#id_user;
     }
 
     get status()
@@ -102,18 +105,18 @@ class Task
         this.#due_date = new Date(due_date);
     }
 
-    set owner(owner)
+    set id_user(id_user)
     {
-        if (owner.length === 0)
+        if (id_user.length === 0)
         {
-            throw new TaskException("Owner cannot be empty");
+            throw new TaskException("id_user cannot be empty");
         }
-        if (searchUsers("name", owner).length === 0)
+        if (users.filter(u => u["id"] === id_user).length === 0)
         {
-            throw new TaskException("Owner does not exist");
+            throw new TaskException("id_user does not exist");
         }
 
-        this.#owner = owner;
+        this.#id_user = id_user;
     }
 
     set status(status)
@@ -124,18 +127,33 @@ class Task
         } else throw new TaskException("Status code is invalid, should be A/F/C");
     }
 
-    set tags(tags)
+    set tags(new_tags)
     {
-        if (Array.isArray(tags))
+        if (Array.isArray(new_tags))
         {
-            for (let i = 0; i < tags.length; i++)
+            for (let i = 0; i < new_tags.length; i++)
             {
-                if (searchTags("id", tags[i]).length === 0)
+                if (tags.filter(t => t["id"] === new_tags[i]).length === 0)
                 {
-                    throw new TaskException(`Tag ${tags[i]} not found.`);
+                    throw new TaskException(`Tag ${new_tags[i]} not found.`);
                 }
             }
-            this.#tags = tags;
+            this.#tags = new_tags;
         } else throw new TaskException("Must be an array");
     }
+
+    toObj()
+    {
+        return {
+            id: this.id,
+            title: this.title,
+            description: this.description,
+            due_date: this.due_date,
+            id_user: this.id_user,
+            status: this.status,
+            tags: this.tags
+        };
+    }
 }
+
+module.exports = Task;
