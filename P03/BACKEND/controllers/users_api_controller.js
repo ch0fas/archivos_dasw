@@ -47,10 +47,18 @@ exports.registerUser = (req, res) => // POST
             res.status(400).send("Passwords must match!");
         } else
         {
-            let new_user = new User(req.body.name, req.body.email, req.body.password);
-            users.push(new_user.toObj());
-            fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 2));
-            res.send("User added");
+            let found_pwd = users.filter(u => String(u.password) === req.body.password);
+
+            if (found_pwd)
+            {
+                res.status(400).send("Password has to be unique!");
+            } else
+            {
+                let new_user = new User(req.body.name, req.body.email, req.body.password);
+                users.push(new_user.toObj());
+                fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 2));
+                res.send("User added");
+            }
         }
     } catch (err)
     {

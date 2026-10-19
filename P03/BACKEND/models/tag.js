@@ -1,8 +1,10 @@
-let nextTagID = 1;
+const fs = require('fs');
+const tags = JSON.parse(fs.readFileSync('./database/tags.json'));
+const users = JSON.parse(fs.readFileSync('./database/users.json'));
 
 function getNextTagID()
 {
-    return nextTagID++;
+    return tags.length + 1;
 }
 
 class TagException
@@ -18,12 +20,14 @@ class Tag
     #id;
     #name;
     #color;
+    #id_user;
     
-    constructor(name, color)
+    constructor(name, color, id_user)
     {
+        this.#id = getNextTagID();
         this.name = name;
         this.color = color;
-        this.#id = getNextTagID();
+        this.id_user = id_user;
     }
 
     // Getters
@@ -40,6 +44,11 @@ class Tag
     get color()
     {
         return this.#color;
+    }
+
+    get id_user()
+    {
+        return this.#id_user;
     }
 
     // Setters
@@ -65,6 +74,31 @@ class Tag
         {
             this.#color = color;
         } else throw new TagException("Not a valid color");
+    }
+
+    set id_user(id_user)
+    {
+        if (id_user.length === 0)
+        {
+            throw new TagException("id_user cannot be empty");
+        }
+        if (users.filter(u => u["id"] === id_user).length === 0)
+        {
+            throw new TagException("id_user does not exist");
+        }
+
+        this.#id_user = id_user;
+    }
+
+    toObj()
+    {
+        return {
+            id: this.id,
+            name: this.name,
+            color: this.color,
+            id_user: this.id_user,
+
+        }
     }
 }
 

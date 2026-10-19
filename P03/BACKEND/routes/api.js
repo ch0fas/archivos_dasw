@@ -2,11 +2,13 @@ const express = require('express');
 const path = require('path');
 const usersRoutes = require('./users');
 const tasksRoutes = require('./tasks');
+const tagsRoutes = require('./tags');
 
 const routerApi = express.Router();
 
 routerApi.use("/users", usersRoutes);
 routerApi.use("/tasks", tasksRoutes);
+routerApi.use("/tags", tagsRoutes);
 
 function auth_entry(req, res, next)
 {

@@ -35,17 +35,53 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/tasks?page=1&limit=10
 x-auth: 12345678910
-Content-Type: application/json
 
-{
-    "id_user": 1
-}
 
 
 ###
 GET http://localhost:3000/tasks/1
 x-auth: 12345678910
 
+###
+PATCH http://localhost:3000/tasks/1
+x-auth: 12345678910
+Content-Type: application/json
+
 {
-    "id_user": 1
+    "title": "Finish P3 Reports",
+    "description": "finishing up now",
+    "due_date": "Foo",
+    "status": "F"
+}
+
+###
+DELETE http://localhost:3000/tasks/3
+x-auth: naty_fresa
+
+###
+POST http://localhost:3000/tags/
+x-auth: naty_fresa
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "color": "#FFAAAA"
+}
+
+###
+GET http://localhost:3000/tags?page=1&limit=10
+x-auth: naty_fresa
+
+###
+GET http://localhost:3000/tags/2
+x-auth: naty_fresa
+
+###
+PATCH http://localhost:3000/tags/1
+x-auth: 12345678910
+Content-Type: application/json
+
+{
+    "name": "Casa",
+    "color": "#003dcb"
 }

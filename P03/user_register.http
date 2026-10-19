@@ -151,3 +151,14 @@ Content-Type: application/json
     "password": "noche_en_corto",
     "confirm_password": "noche_en_corto"
 }
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Normal Guy",
+    "email": "foo@bar.com",
+    "password": "noche_en_corto",
+    "confirm_password": "noche_en_corto"
+}

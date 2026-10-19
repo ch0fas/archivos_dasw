@@ -38,6 +38,30 @@ exports.authTasksMiddleware = (req, res, next) =>
     }
 }
 
+exports.authTasksMiddleware2 = (req, res, next) =>
+{
+    try
+    {
+        let pwd = req.get('x-auth');
+        if (!pwd)
+        {
+            return res.status(401).send("Did not provide password!");
+        }
+
+        let found_user = users.find(u => String(u.password) === pwd);
+        if (!found_user)
+        {
+            return res.status(404).send("User Not Found");
+        }
+
+        req.user = found_user;
+        next();
+    } catch (err)
+    {
+        return res.status(400).send(err.message);
+    }
+}
+
 exports.registerTask = (req, res) =>
 {
     try
@@ -104,9 +128,84 @@ exports.getTaskFromId = (req, res) =>
 {
     try
     {
-        let all_tasks = tasks.filter(t => String(t.id_user) === String(req.user.id));
-        let res_task = all_tasks.filter(t => String(t.id) === req.params.id);
-        res.json(res_task);
+        let found_task = tasks.find(t => String(t.id_user) === String(req.user.id) && String(t.id) === req.params.id);
+
+        if (!found_task)
+        {
+            res.status(404).send("Task Not Found");
+        }
+
+        res.json(found_task);
+    } catch (err)
+    {
+        res.status(400).send(err.message);
+    }
+}
+
+exports.patchTask = (req, res) =>
+{
+    try
+    {
+        let body = req.body;
+        let fields = ["title", "description", "due_date", "status", "tags"];
+
+        let valid_changes = {};
+
+        for (const i of fields)
+        {
+            if (i in body)
+            {
+                valid_changes[i] = body[i];
+            }
+        }
+
+        if (Object.keys(valid_changes).length === 0)
+        {
+            res.status(400).send("No valid fields were given");
+        }
+
+        let position = tasks.findIndex(t => String(t.id) === req.params.id && String(t.id_user) === String(req.user.id));
+        if (position === -1)
+        {
+            res.status(404).send("Task Not Found");
+        }
+
+        let new_task_data = {...tasks[position], ...valid_changes};
+        let new_task = new Task(new_task_data.title, new_task_data.description, new_task_data.due_date, new_task_data.id_user, new_task_data.status, new_task_data.tags);
+
+        let updated_task = {...new_task.toObj(), id: tasks[position].id};
+
+        let updated_tasks = [...tasks];
+        updated_tasks[position] = updated_task;
+
+        fs.writeFileSync('./database/tasks.json', JSON.stringify(updated_tasks, null, 2));
+        tasks = updated_tasks;
+    } catch (err)
+    {
+        res.status(400).send(err.message);
+    }
+}
+
+exports.removeTask = (req, res) =>
+{
+    try
+    {
+        let position = tasks.findIndex(t => String(t.id) === req.params.id && String(t.id_user) === String(req.user.id));
+        if (position === -1)
+        {
+            res.status(404).send("Task Not Found");
+        }
+        let removed_task = {...tasks[position]};
+        let updated_tasks = tasks.filter(t => String(t.id) !== req.params.id);
+
+        fs.writeFileSync('./database/tasks.json', JSON.stringify(updated_tasks, null, 2));
+        tasks = updated_tasks;
+
+        res.json
+        ({
+            message: `Task with ID ${req.params.id} was deleted!`,
+            task: removed_task
+        });
     } catch (err)
     {
         res.status(400).send(err.message);
