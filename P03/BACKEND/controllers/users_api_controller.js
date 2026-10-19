@@ -44,14 +44,14 @@ exports.registerUser = (req, res) => // POST
     {
         if (req.body.password !== req.body.confirm_password)
         {
-            res.status(400).send("Passwords must match!");
+            return res.status(400).send("Passwords must match!");
         } else
         {
-            let found_pwd = users.filter(u => String(u.password) === req.body.password);
+            let found_pwd = users.some(u => String(u.password) === req.body.password);
 
             if (found_pwd)
             {
-                res.status(400).send("Password has to be unique!");
+                return res.status(400).send("Password has to be unique!");
             } else
             {
                 let new_user = new User(req.body.name, req.body.email, req.body.password);
@@ -62,7 +62,7 @@ exports.registerUser = (req, res) => // POST
         }
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -72,7 +72,7 @@ exports.usersPage = (req, res) => // Get Page
     {
         if (req.get("x-auth") !== "admin_auth")
         {
-            res.status(401).send("Wrong Admin Password");
+            return res.status(401).send("Wrong Admin Password");
         } else
         {
             let page = parseInt(req.query.page);
@@ -93,7 +93,7 @@ exports.usersPage = (req, res) => // Get Page
         }
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -104,7 +104,7 @@ exports.getUserFromID = (req, res) => // Get from ID
         res.json(req.user);
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -129,12 +129,12 @@ exports.patchUser = (req, res) => // Patch from ID
 
         if (Object.keys(valid_changes).length === 0)
         {
-            res.status(400).send("No valid fields were given");
+            return res.status(400).send("No valid fields were given");
         }
 
         if (valid_changes.email && users.some(u => String(u.email) === valid_changes.email && String(u.id) !== req.params.id))
         {
-            res.status(403).send("Email already in use");
+            return res.status(403).send("Email already in use");
         }
 
         let position = users.findIndex(u => String(u.id) === req.params.id);
@@ -154,7 +154,7 @@ exports.patchUser = (req, res) => // Patch from ID
 
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -177,7 +177,7 @@ exports.removeUser = (req, res) => // DELETE from ID
 
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 

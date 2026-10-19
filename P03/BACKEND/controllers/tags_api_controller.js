@@ -2,6 +2,7 @@ const fs = require('fs');
 const Tag = require('../models/tag');
 let tags = JSON.parse(fs.readFileSync('./database/tags.json'));
 let users = JSON.parse(fs.readFileSync('./database/users.json'));
+let tasks = JSON.parse(fs.readFileSync('./database/tasks.json'));
 
 exports.authTagsMiddleware = (req, res, next) =>
 {
@@ -66,7 +67,7 @@ exports.tagsPage = (req, res) =>
         })
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -78,13 +79,13 @@ exports.getTagFromId = (req, res) =>
 
         if (!found_tag)
         {
-            res.status(404).send("Tag Not Found");
+            return res.status(404).send("Tag Not Found");
         }
 
         res.json(found_tag);
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -106,13 +107,13 @@ exports.patchTag = (req, res) =>
 
         if (Object.keys(valid_changes).length === 0)
         {
-            res.status(400).send("No valid fields were given");
+            return res.status(400).send("No valid fields were given");
         }
 
         let position = tags.findIndex(tag => String(tag.id) === req.params.id && String(tag.id_user) === String(req.user.id));
         if (position === -1)
         {
-            res.status(404).send("Tag Not Found");
+            return res.status(404).send("Tag Not Found");
         }
 
         let new_tag_data = {...tags[position], ...valid_changes};
@@ -125,10 +126,53 @@ exports.patchTag = (req, res) =>
 
         fs.writeFileSync('./database/tags.json', JSON.stringify(updated_tags, null, 2));
         tags = updated_tags;
+
+        res.json
+        ({
+            message: "Tag edited successfully!",
+            tag: updated_tag
+        });
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
+}
+
+exports.removeTag = (req, res) =>
+{
+    try
+    {
+        let position = tags.findIndex(tag => String(tag.id) === req.params.id && String(tag.id_user) === String(req.user.id));
+
+        if (position === -1)
+        {
+            return res.status(404).send("Task Not Found");
+        }
+
+        let tag_id = tags[position].id;
+
+        let used_tag = tasks.some(t => Array.isArray(t.tags) && t.tags.some(tag => tag === tag_id));
+
+        if (used_tag)
+        {
+            return res.status(400).send("Tag is still in use and cannot be deleted!");
+        }
+
+        let removed_tag = tags[position];
+        let updated_tags = tags.filter(tag => String(tag.id) !== String(tag_id));
+
+        fs.writeFileSync('./database/tags.json', JSON.stringify(updated_tags, null, 2));
+        tags = updated_tags;
+
+        res.json({
+            message: "Tag deleted successfully!",
+            tag: removed_tag
+        })
+    } catch (err)
+    {
+        return res.status(400).send(err.message);
+    }
+
 }
 
 function createTag(name, color)

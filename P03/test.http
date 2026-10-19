@@ -1,87 +1,223 @@
+# === PUNTO 1 ===
+### Llamada sin autentificación (va a dar la página de login)
+GET http://localhost:3000/ 
+
+### Llamada con autentificación (va a dar la página de home)
+GET http://localhost:3000/
+x-auth: Pass1234
+
+### Ruta a Home
+GET http://localhost:3000/home.html
+x-auth: Pass1234
+
+### Ruta a Tasks
+GET http://localhost:3000/tasks.html
+x-auth: 1234
+
+### === Punto 2 ===
+### Usuarios vacíos
+GET http://localhost:3000/users?page=1&limit=100
+x-auth: admin_auth
+
+### === Punto 3 ===
+### Usuario 1
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Ale",
+    "email": "alegonz@tec.mx",
+    "password": "26092025",
+    "confirm_password": "26092025"
+}
+
+
+### Usuario 2
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Naty",
+    "email": "natalia.arenas@gmail.com",
+    "password": "naty_fresa",
+    "confirm_password": "naty_fresa"
+}
+
+### Usuario 3
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "name": "Sofia",
+    "email": "sofi@chofas.org",
+    "password": "12345678910",
+    "confirm_password": "12345678910"
+}
+
+### Consultando Tareas
+GET http://localhost:3000/tasks?page=1&limit=100
+x-auth: 12345678910
+
+### Consultando Tags
+GET http://localhost:3000/tags?page=1&limit=100
+x-auth: 12345678910
+
+### === Punto 4 ===
+### Usuario con id = 2
+GET http://localhost:3000/users/2
+x-auth: naty_fresa
+
+### === Punto 5 ===
+### Consultando 2 usuarios en página 1
 GET http://localhost:3000/users?page=1&limit=2
 x-auth: admin_auth
 
-###
-GET http://localhost:3000/users/14
-x-auth: i_like_moms
-
-###
-PATCH http://localhost:3000/users/1
-Content-Type: application/json
+### === Punto 6 ===
+### Editando usuario 
+PATCH http://localhost:3000/users/3
 x-auth: 12345678910
+Content-Type: application/json
 
 {
-    "name": "Sofi",
-    "email": "foo@chofas.org"
+    "name": "Sofia Maldonado Garcia"
 }
 
-###
-DELETE http://localhost:3000/users/5
-x-auth: espana_vibra
+### === Punto 7 ===
+### Eliminando user con ID = 1
+DELETE http://localhost:3000/users/1
+x-auth: 26092025
 
-###
+### Verificando
+GET http://localhost:3000/users?page=1&limit=10
+x-auth: admin_auth
+
+### === Punto 8 ===
+### Creando Task 1
 POST http://localhost:3000/tasks/
 x-auth: naty_fresa
 Content-Type: application/json
 
 {
-    "title": "Terminar de Anotar",
-    "description": "Spam",
-    "due_date": "2026-10-31",
-    "id_user": 3,
-    "tags": [1]
+    "title": "Terminar PAP",
+    "description": "Ayudar a juventudes",
+    "due_date": "2027-05-10",
+    "id_user": 2,
+    "tags": []
 }
 
-###
-GET http://localhost:3000/tasks?page=1&limit=10
-x-auth: 12345678910
+### Creando Task 2
+POST http://localhost:3000/tasks/
+x-auth: naty_fresa
+Content-Type: application/json
 
+{
+    "title": "Ir a fiesta de Azul",
+    "description": "Atrás de ITESO",
+    "due_date": "2026-10-17",
+    "id_user": 2,
+    "status": "F",
+    "tags": []
+}
 
+### Creando Task 3
+POST http://localhost:3000/tasks/
+x-auth: naty_fresa
+Content-Type: application/json
 
-###
+{
+    "title": "Acabar 7mo semestre",
+    "description": "Con dieces en las materias",
+    "due_date": "2026-12-04",
+    "id_user": 2,
+    "tags": []
+}
+
+### === Punto 9 ===
+### Checando tarea con ID = 1
 GET http://localhost:3000/tasks/1
-x-auth: 12345678910
+x-auth: naty_fresa
 
-###
-PATCH http://localhost:3000/tasks/1
-x-auth: 12345678910
+### === Punto 10 ===
+### Checando tareas en página 2 con lim de 1
+GET http://localhost:3000/tasks?page=2&limit=1
+x-auth: naty_fresa
+
+### === Punto 11 ===
+### Editando tarea con ID = 3
+PATCH http://localhost:3000/tasks/3
+x-auth: naty_fresa
 Content-Type: application/json
 
 {
-    "title": "Finish P3 Reports",
-    "description": "finishing up now",
-    "due_date": "Foo",
-    "status": "F"
+    "title": "Terminar 8vo semestre",
+    "due_date": "2027-05-10"
 }
 
-###
-DELETE http://localhost:3000/tasks/3
+### === Punto 12 ===
+### Eliminando tarea con ID = 1
+DELETE http://localhost:3000/tasks/1
 x-auth: naty_fresa
 
-###
+### Verificando...
+GET http://localhost:3000/tasks?page=1&limit=100
+x-auth: naty_fresa
+
+### === Punto 13 ===
+### Creando 3 etiquetas nuevas para ID = 3
 POST http://localhost:3000/tags/
-x-auth: naty_fresa
-Content-Type: application/json
-
-{
-    "name": "Test",
-    "color": "#FFAAAA"
-}
-
-###
-GET http://localhost:3000/tags?page=1&limit=10
-x-auth: naty_fresa
-
-###
-GET http://localhost:3000/tags/2
-x-auth: naty_fresa
-
-###
-PATCH http://localhost:3000/tags/1
 x-auth: 12345678910
 Content-Type: application/json
 
 {
-    "name": "Casa",
+    "name": "Home",
     "color": "#003dcb"
 }
+
+### Etiqueta 2
+POST http://localhost:3000/tags/
+x-auth: 12345678910
+Content-Type: application/json
+
+{
+    "name": "School",
+    "color": "#ffa500"
+}
+
+### Etiqueta 3
+POST http://localhost:3000/tags/
+x-auth: 12345678910
+Content-Type: application/json
+
+{
+    "name": "Exercise",
+    "color": "#648c11"
+}
+
+### === Punto 14 ===
+### Checando etiqueta con ID = 2
+GET http://localhost:3000/tags/2
+x-auth: 12345678910
+
+### === Punto 15 ===
+### Checando página 1 de tags con lim de 3 para user_ID = 3
+GET http://localhost:3000/tags?page=1&limit=3
+x-auth: 12345678910
+
+### === Punto 16 ===
+### Editando etiqueta con ID = 2
+PATCH http://localhost:3000/tags/2
+x-auth: 12345678910
+Content-Type: application/json
+
+{
+    "name": "Trabajo"
+}
+
+### === Punto 17 ===
+### Eliminando etiqueta con ID = 1 para user_id = 3
+DELETE http://localhost:3000/tags/1
+x-auth: 12345678910
+
+### Verificando...
+GET http://localhost:3000/tags?page=1&limit=10
+x-auth: 12345678910

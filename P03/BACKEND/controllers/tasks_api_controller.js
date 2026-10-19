@@ -94,7 +94,7 @@ exports.registerTask = (req, res) =>
         res.send("Task Added");
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -120,7 +120,7 @@ exports.tasksPage = (req, res) =>
         });
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -132,13 +132,13 @@ exports.getTaskFromId = (req, res) =>
 
         if (!found_task)
         {
-            res.status(404).send("Task Not Found");
+            return res.status(404).send("Task Not Found");
         }
 
         res.json(found_task);
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -161,13 +161,13 @@ exports.patchTask = (req, res) =>
 
         if (Object.keys(valid_changes).length === 0)
         {
-            res.status(400).send("No valid fields were given");
+            return res.status(400).send("No valid fields were given");
         }
 
         let position = tasks.findIndex(t => String(t.id) === req.params.id && String(t.id_user) === String(req.user.id));
         if (position === -1)
         {
-            res.status(404).send("Task Not Found");
+            return res.status(404).send("Task Not Found");
         }
 
         let new_task_data = {...tasks[position], ...valid_changes};
@@ -180,9 +180,15 @@ exports.patchTask = (req, res) =>
 
         fs.writeFileSync('./database/tasks.json', JSON.stringify(updated_tasks, null, 2));
         tasks = updated_tasks;
+
+        res.json
+        ({
+            message: "Task updated successfully",
+            task: updated_task
+        })
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 
@@ -193,7 +199,7 @@ exports.removeTask = (req, res) =>
         let position = tasks.findIndex(t => String(t.id) === req.params.id && String(t.id_user) === String(req.user.id));
         if (position === -1)
         {
-            res.status(404).send("Task Not Found");
+            return res.status(404).send("Task Not Found");
         }
         let removed_task = {...tasks[position]};
         let updated_tasks = tasks.filter(t => String(t.id) !== req.params.id);
@@ -208,7 +214,7 @@ exports.removeTask = (req, res) =>
         });
     } catch (err)
     {
-        res.status(400).send(err.message);
+        return res.status(400).send(err.message);
     }
 }
 

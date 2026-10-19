@@ -14,6 +14,8 @@ routerTags.get("/:id", tagsController.getTagFromId);
 
 routerTags.patch("/:id", tagsController.patchTag);
 
+routerTags.delete("/:id", tagsController.removeTag);
+
 
 
 

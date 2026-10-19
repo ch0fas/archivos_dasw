@@ -159,6 +159,6 @@ Content-Type: application/json
 {
     "name": "Normal Guy",
     "email": "foo@bar.com",
-    "password": "noche_en_corto",
-    "confirm_password": "noche_en_corto"
+    "password": "family_guy_if_you_will",
+    "confirm_password": "family_guy_if_you_will"
 }

@@ -1,100 +1,16 @@
 [
   {
-    "id": 1,
-    "name": "Sofi",
-    "email": "foo@chofas.org",
-    "password": "12345678910",
-    "joined_at": "2026-10-15T00:29:24.580Z"
-  },
-  {
     "id": 2,
-    "name": "Andres",
-    "email": "andres@uoft.ca",
-    "password": "i_like_moms",
-    "joined_at": "2026-10-15T00:29:26.116Z"
-  },
-  {
-    "id": 3,
     "name": "Naty",
     "email": "natalia.arenas@gmail.com",
     "password": "naty_fresa",
-    "joined_at": "2026-10-15T00:29:27.801Z"
+    "joined_at": "2026-10-19T22:28:34.725Z"
   },
   {
-    "id": 4,
-    "name": "Ale",
-    "email": "alegonz@tec.mx",
-    "password": "26092025",
-    "joined_at": "2026-10-15T00:29:29.208Z"
-  },
-  {
-    "id": 5,
-    "name": "Alexa",
-    "email": "alexa.moya@udeg.mx",
-    "password": "espana_vibra",
-    "joined_at": "2026-10-15T00:29:30.184Z"
-  },
-  {
-    "id": 6,
-    "name": "Arturo",
-    "email": "arfurro@gmail.br",
-    "password": "nubenubenube",
-    "joined_at": "2026-10-15T00:29:31.898Z"
-  },
-  {
-    "id": 7,
-    "name": "Lucia",
-    "email": "lu@iteso.mx",
-    "password": "arqui_mention",
-    "joined_at": "2026-10-15T00:29:33.087Z"
-  },
-  {
-    "id": 8,
-    "name": "Maci",
-    "email": "mariana@udeg.mx",
-    "password": "libra_fest_da_best",
-    "joined_at": "2026-10-15T00:29:34.275Z"
-  },
-  {
-    "id": 9,
-    "name": "MarianaG",
-    "email": "mariana@tec.mx",
-    "password": "lesbianism",
-    "joined_at": "2026-10-15T00:29:35.618Z"
-  },
-  {
-    "id": 10,
-    "name": "Benitez",
-    "email": "mariana@iteso.mx",
-    "password": "biotec_mention",
-    "joined_at": "2026-10-15T00:29:37.028Z"
-  },
-  {
-    "id": 11,
-    "name": "Nicole",
-    "email": "nicole@iteso.mx",
-    "password": "party_in_da_usa",
-    "joined_at": "2026-10-15T00:29:38.108Z"
-  },
-  {
-    "id": 12,
-    "name": "Oscar",
-    "email": "salcedi@ou.org",
-    "password": "mr_worldwide",
-    "joined_at": "2026-10-15T00:29:39.452Z"
-  },
-  {
-    "id": 13,
-    "name": "Vale",
-    "email": "vale@iteso.mx",
-    "password": "psiconena",
-    "joined_at": "2026-10-15T00:29:40.694Z"
-  },
-  {
-    "id": 14,
-    "name": "Ximena",
-    "email": "ximena@gmail.ar",
-    "password": "noche_en_corto",
-    "joined_at": "2026-10-15T00:29:41.860Z"
+    "id": 3,
+    "name": "Sofia Maldonado Garcia",
+    "email": "sofi@chofas.org",
+    "password": "12345678910",
+    "joined_at": "2026-10-19T22:28:35.734Z"
   }
 ]
