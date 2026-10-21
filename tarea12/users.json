@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Sofia",
+        "age": 21,
+        "email": "sofi@chofas.org"
+    },
+    {
+        "name": "LeBron James",
+        "age": 41,
+        "email": "lebron@76ers.org"
+    },
+    {
+        "name": "Jalen Brunson",
+        "age": 30,
+        "email": "jbrunson@knicks.org"
+    }
+]
