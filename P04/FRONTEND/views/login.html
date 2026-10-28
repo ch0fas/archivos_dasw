@@ -20,22 +20,12 @@
                 background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
             }
         </style>
-        <script>
-            function toggleForms()
-            {
-                let form_login = document.getElementById("formLogin"), form_register = document.getElementById("formRegister");
-                if (form_register.style.display == "none")
-                {
-                    form_login.style.display = "none";
-                    form_register.style.display = "block";
-                } else
-                {
-                    form_login.style.display = "block";
-                    form_register.style.display = "none";
-                }
-            }
-        </script>
+        
+        
     </head>
+
+    <script src="../controllers/env.js"></script>
+    <script src="../controllers/auth_controller.js"></script>
 
     <body class="d-flex align-items-center justify-content-center vh-100">
         <header>
@@ -43,13 +33,13 @@
         </header>
         <main>
             <div class="card text-start" style="width: 540px; padding: 5% 5% 5% 5%;" >
-                <form action="./p01_home.html" id="formLogin">
+                <form id="formLogin">
                     <div class="mb-3">
                         <label for="" class="form-label">Correo</label>
                         <input
                             type="email"
                             class="form-control"
-                            name=""
+                            name="email"
                             id=""
                             aria-describedby="emailHelpId"
                             placeholder="foo@bar.com"
@@ -61,7 +51,7 @@
                         <input
                             type="password"
                             class="form-control"
-                            name=""
+                            name="password"
                             id=""
                             placeholder=""
                             required="true"
@@ -97,7 +87,7 @@
                         <input
                             type="text"
                             class="form-control"
-                            name=""
+                            name="email"
                             id=""
                             aria-describedby="helpId"
                             placeholder="Sofia"
@@ -109,7 +99,7 @@
                             <input
                                 type="email"
                                 class="form-control"
-                                name=""
+                                name="password"
                                 id=""
                                 aria-describedby="emailHelpId"
                                 placeholder="foo@bar.com"
@@ -172,5 +162,6 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
         ></script>
+        
     </body>
 </html>

@@ -181,6 +181,21 @@ exports.removeUser = (req, res) => // DELETE from ID
     }
 }
 
+exports.login = (req, res) =>
+{
+    let data = req.body;
+    let user;
+    user = users.find(u => (u.email === data.email && u.password === data.password));
+
+    if (user)
+    {
+        res.send(user);
+    } else
+    {
+        res.sendStatus(401);
+    }
+}
+
 function getUserById(id)
 {
     let found_user = data.users.find((elem) => elem.id === id);

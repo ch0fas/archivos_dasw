@@ -14,7 +14,13 @@
             crossorigin="anonymous"
         />
         <script src="https://kit.fontawesome.com/98b9f9da5b.js" crossorigin="anonymous"></script>
+        
     </head>
+
+    <script src="../controllers/env.js"></script>
+    <script src="../controllers/auth_controller.js"></script>
+    <script src="../controllers/tasks_controller.js"></script>
+    <script src="../controllers/tags_controller.js"></script>
 
     <body>
             <header>
@@ -22,7 +28,7 @@
                 <a class="nav-link active" href="#" aria-current="page"><img
                         src="https://minecraft.wiki/images/Emerald_JE3_BE3.png" alt=""
                         style="height: 64px; border-radius: 32px;"></a>
-                <a class="nav-link" href="p01_tasks.html" style="color: grey;">Tareas</a>
+                <a class="nav-link" href="tasks.html" style="color: grey;">Tareas</a>
                 <div class="dropdown open">
                     <a class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"
@@ -88,7 +94,7 @@
                             Buscar
                         </button>
                     </div>
-                    <a href="p01_home.html" style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
+                    <a style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
                         data-bs-target="#myModal2"><i class="fa-solid fa-right-from-bracket"
                             style="color: rgb(255, 255, 255);"></i></a>
                     <div class="modal fade" id="myModal2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
@@ -106,8 +112,8 @@
                                     Realmente quieres cerrar sesión?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="p01_login.html">
-                                        <button class="btn btn-primary">
+                                    <a href="login.html">
+                                        <button class="btn btn-primary" id="confirmed_logout">
                                             Aceptar
                                         </button>
                                     </a>
@@ -313,5 +319,6 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
         ></script>
+        <script src="../controllers/env.js"></script>
     </body>
 </html>
