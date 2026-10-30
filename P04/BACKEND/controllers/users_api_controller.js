@@ -57,7 +57,7 @@ exports.registerUser = (req, res) => // POST
                 let new_user = new User(req.body.name, req.body.email, req.body.password);
                 users.push(new_user.toObj());
                 fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 2));
-                res.send("User added");
+                res.json(new_user.toObj());
             }
         }
     } catch (err)

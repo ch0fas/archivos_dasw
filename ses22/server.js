@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let mongoConnection = "mongodb+srv://admin:12345678910@cluster0.guvr6yk.mongodb.net/MyAppDB";
+let mongoConnection = "sikebitchuthought";
 
 let db = mongoose.connection;
 

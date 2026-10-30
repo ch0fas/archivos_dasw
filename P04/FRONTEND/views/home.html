@@ -113,6 +113,9 @@
                 <a style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
                     data-bs-target="#myModal2"><i class="fa-solid fa-right-from-bracket"
                         style="color: rgb(255, 255, 255);"></i></a>
+
+                <a style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
+                    data-bs-target="#myModal3"><i class="fa-solid fa-gear" style="color: rgb(255, 255, 255);"></i></a>
                 <div class="modal fade" id="myModal2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
                     tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
@@ -137,6 +140,103 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="myModal3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                    tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalToggleLabel">
+                                    Editar Usuario
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="formEditUser">
+                                    <div class="mb-3">
+                                    <label for="" class="form-label">Nombre</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                        id="edit_name_field"
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                        required
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Correo</label>
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        name="email"
+                                        id="edit_email_field"
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                        required
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Contraseña</label>
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        name="password"
+                                        id="edit_password_field"
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                        required
+                                    />
+                                </div>
+                                </form>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <a style="margin: auto 10px auto;" href="#" data-bs-toggle="modal"
+                                data-bs-target="#myModal4">
+                                <button class="btn btn-danger" id="confirmed_logout">
+                                    Elimiar
+                                </button>
+                                </a>
+                                
+
+                                <button class="btn btn-primary" id="change_user_button" form="formEditUser" type="submit">
+                                    Guardar Cambios
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModal4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                    tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalToggleLabel">
+                                    Eliminar Usuario
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Segure que deseas eliminar tu usuario?
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary">
+                                    Cancelar
+                                </button>
+                                <button class="btn btn-primary" id="confirmed_delete">
+                                    Aceptar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </nav>
 
     </header>
@@ -149,7 +249,7 @@
                     <div style="display: flex;">
                         <img src="https://minecraft.wiki/images/Emerald_JE3_BE3.png" alt="">
                         <p class="card-text" style="align-content: center;">
-                            <b>Sofía Maldonado</b><br>
+                            <b id="userNameWidget"></b><br>
                             <b>Tareas terminadas por hoy:</b> 6 tareas<br>
                             <b>Tareas pendientes de hoy:</b> 4 tareas<br>
                         </p>
