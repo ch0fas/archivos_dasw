@@ -51,15 +51,8 @@
                     style="background-color: black; border: 0px; color: grey;">
                     Etiquetas
                 </a>
-                <div class="dropdown-menu" aria-labelledby="triggerId" style="background-color: black;">
-                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Salud')"
-                        style="color: grey;">Salud</a>
-                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Proyectos')"
-                        style="color: grey;">Proyectos</a>
-                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Higiene')"
-                        style="color: grey;">Higiene</a>
-                    <a class="dropdown-item" onclick="javascript:alert('Diste click en la etiqueta Trabajo')"
-                        style="color: grey;">Trabajo</a>
+                <div class="dropdown-menu" aria-labelledby="triggerId" style="background-color: black;" id="tagContainer">
+                    <div id="dropdownList"></div>
                     <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#myModal"
                         style="color: grey;">+ Nueva Etiqueta</a>
                 </div>
@@ -75,24 +68,24 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
+                                <form id="tagCreateForm" onsubmit="createTagFront(event)">
                                     <div class="mb-3">
                                         <label for="" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
-                                            placeholder="Deporte" />
+                                        <input type="text" class="form-control" name="name" id="" aria-describedby="helpId"
+                                            placeholder="Deporte" required />
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Color</label>
-                                        <input type="color" class="form-control" name="" id="" aria-describedby="helpId"
-                                            placeholder="red" />
+                                        <input type="color" class="form-control" name="color" id="" aria-describedby="helpId"
+                                            placeholder="red" required/>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" style="background-color: grey;">
+                                <button class="btn btn-primary" style="background-color: grey;" data-bs-dismiss="modal">
                                     Cancelar
                                 </button>
-                                <button class="btn btn-primary">
+                                <button class="btn btn-primary" type="submit" form="tagCreateForm" id="tagCreateButton">
                                     Crear Etiqueta
                                 </button>
                             </div>

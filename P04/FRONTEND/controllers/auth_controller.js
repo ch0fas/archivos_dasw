@@ -146,6 +146,8 @@ function init()
             let current_user = JSON.parse(sessionStorage.getItem('user'));
             name_widget.innerText = current_user.name;
         }
+
+        loadTags();
     });
 }
 

@@ -30,19 +30,25 @@ exports.authTagsMiddleware = (req, res, next) =>
 
 exports.registerTag = (req, res) =>
 {
-    let name = req.body.name;
-    let color = req.body.color;
-
-    if (!name || !color)
+    try
     {
-        return res.status(400).send("Tag is missing name or color!");
+        let name = req.body.name;
+        let color = req.body.color;
+
+        if (!name || !color)
+        {
+            return res.status(400).send("Tag is missing name or color!");
+        }
+
+        let new_tag = new Tag(name, color, req.user.id);
+
+        tags.push(new_tag.toObj());
+        fs.writeFileSync('./database/tags.json', JSON.stringify(tags, null, 2));
+        res.json(new_tag.toObj());
+    } catch (err)
+    {
+        return res.status(400).send(err.message);
     }
-
-    let new_tag = new Tag(name, color, req.user.id);
-
-    tags.push(new_tag.toObj());
-    fs.writeFileSync('./database/tags.json', JSON.stringify(tags, null, 2));
-    res.send("Tag Created");
 }
 
 exports.tagsPage = (req, res) =>

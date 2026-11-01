@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "asd",
+    "color": "#000000",
+    "id_user": 1
+  },
+  {
+    "id": 2,
+    "name": "Bar",
+    "color": "#28a745",
+    "id_user": 1
+  }
+]
