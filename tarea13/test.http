@@ -1,0 +1,10 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "nombre": "Sof",
+    "correo": "foo@bar.com",
+    "pass": "asdasdasd123",
+    "edad": "21",
+    "sexo": "M"
+}
