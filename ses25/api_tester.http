@@ -1,0 +1,37 @@
+// Post Users
+###
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Dorx",
+    "correo": "dorxini@gmail.com",
+    "pass": "pass123",
+    "edad": 29,
+    "sexo": "H"
+}
+
+// Get de usuarios
+###
+GET http://localhost:3000/api/users?nombre=D
+
+// Put Users
+//Cambia el ID por uno existente
+###
+PUT http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "id": "6af203205fe79c1a129d0dff",
+    "nombre": "SUPER UPDATED"
+}
+
+// Delete de Users
+###
+// Cambia el ID por uno existente
+DELETE http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "id": "6af20cfa39413808ab009d26"
+}
