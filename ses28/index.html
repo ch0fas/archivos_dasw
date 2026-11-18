@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+</head>
+<body>
+    
+    <lottie-player src="cof.json" background="transparent" speed="2" style="width: 300px; height: 300px; display: none;" loop autoplay id="foo"></lottie-player>
+    <button id="btn">Iniciar Carga</button>
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function()
+        {
+            setTimeout(function timeout()
+            {b
+                document.getElementById("foo").style.display = "block";
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
